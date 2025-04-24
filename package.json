@@ -5,8 +5,8 @@
   "homepage": "https://yourusername.github.io/your-repo-name",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run build-storybook",
+    "start": "serve storybook-static",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
