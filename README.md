@@ -24,8 +24,8 @@ A comprehensive design system built with React, TypeScript, and TailwindCSS. Thi
 1. Clone the repository:
 
 \`\`\`bash
-git clone https://github.com/yourusername/enterprise-design-system.git
-cd enterprise-design-system
+git clone https://github.com/Abhi-Trivedi05/my-design-system.git
+cd my-design-system
 \`\`\`
 
 2. Install dependencies:
@@ -142,8 +142,6 @@ All components follow WCAG 2.1 guidelines:
 └── README.md             # Project documentation
 \`\`\`
 
-## Best Practices
-
 ### Typography
 
 - Use the appropriate heading level for document structure
@@ -163,6 +161,4 @@ All components follow WCAG 2.1 guidelines:
 - Use modals for important actions that require user attention
 - Ensure all feedback components are accessible
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
