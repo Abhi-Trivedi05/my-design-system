@@ -1,46 +1,168 @@
-# Getting Started with Create React App
+# Enterprise Design System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive design system built with React, TypeScript, and TailwindCSS. This system includes typography components, data entry components, and feedback components.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🎨 **Theme Provider** with dark/light modes
+- 📝 **Typography System** with headings, text variants, labels, and helper text
+- 📊 **Data Entry Components** including TextInput and Dropdown
+- 🔔 **Feedback Components** including Toast and Modal
+- 📱 **Responsive Design** with mobile-first approach
+- ♿ **Accessibility** following WCAG 2.1 guidelines
+- 📚 **Storybook Documentation** for all components
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js 16.x or higher
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+\`\`\`bash
+git clone https://github.com/yourusername/enterprise-design-system.git
+cd enterprise-design-system
+\`\`\`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+\`\`\`bash
+npm install
+# or
+yarn install
+\`\`\`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run the development server:
 
-### `npm run eject`
+\`\`\`bash
+npm run dev
+# or
+yarn dev
+\`\`\`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Open [http://localhost:3000](http://localhost:3000) to view the demo in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Storybook
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run Storybook and view component documentation:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+\`\`\`bash
+npm run storybook
+# or
+yarn storybook
+\`\`\`
 
-## Learn More
+This will start Storybook on [http://localhost:6006](http://localhost:6006).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Component Documentation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Typography System
+
+The typography system includes:
+
+- **Heading**: H1-H6 components with appropriate styling
+- **Text**: Customizable text component with various sizes, weights, and colors
+- **Label**: Form label component with required state support
+- **Caption**: Small text for supplementary information
+- **HelperText**: Form helper text with status variants
+
+### Data Entry Components
+
+#### TextInput
+
+A versatile input component with features like:
+
+- Label and helper text
+- Error state
+- Start and end icons
+- Password visibility toggle
+- Clearable option
+- Different sizes
+- Full width support
+
+#### Dropdown
+
+A dropdown/select component with:
+
+- Label and helper text
+- Error state
+- Default value support
+- Disabled options
+- Different sizes
+- Full width support
+
+### Feedback Components
+
+#### Toast
+
+A toast notification system with:
+
+- Different status variants (info, success, warning, error)
+- Customizable duration
+- Action buttons
+- Programmatic API
+
+#### Modal
+
+A modal dialog component with:
+
+- Different sizes
+- Custom header and footer
+- Form support
+- Nested modals
+- Accessibility features
+
+## Accessibility
+
+All components follow WCAG 2.1 guidelines:
+
+- Proper ARIA attributes
+- Keyboard navigation
+- Focus management
+- Color contrast
+- Screen reader support
+
+## Project Structure
+
+\`\`\`
+├── app/                  # Next.js app directory
+├── components/           # React components
+│   ├── foundation/       # Base components like Typography
+│   ├── data-entry/       # Input components
+│   ├── feedback/         # Feedback components
+│   ├── theme/            # Theme provider and related utilities
+├── lib/                  # Utility functions
+├── stories/              # Storybook stories
+├── .storybook/           # Storybook configuration
+├── public/               # Static assets
+└── README.md             # Project documentation
+\`\`\`
+
+## Best Practices
+
+### Typography
+
+- Use the appropriate heading level for document structure
+- Maintain consistent text styles throughout the application
+- Use muted text for secondary information
+
+### Forms
+
+- Always include labels for form fields
+- Use helper text to provide additional context
+- Display clear error messages
+- Make required fields visually distinct
+
+### Feedback
+
+- Use toast notifications for non-disruptive feedback
+- Use modals for important actions that require user attention
+- Ensure all feedback components are accessible
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
