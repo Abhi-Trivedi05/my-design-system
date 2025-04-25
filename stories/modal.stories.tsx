@@ -1,26 +1,73 @@
-"use client"
-import type { Meta, StoryObj } from "@storybook/react"
-import { Modal, useModal } from "@/components/feedback/modal"
-import { Button } from "@/components/ui/button"
-import { TextInput } from "@/components/data-entry/text-input"
-import { Dropdown } from "@/components/data-entry/dropdown"
-import { Heading, Text } from "@/components/foundation/typography"
+"use client";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Modal, useModal } from "@/components/feedback/modal";
+import { Button } from "@/components/ui/button";
+import { TextInput } from "@/components/data-entry/text-input";
+import { Dropdown } from "@/components/data-entry/dropdown";
+import { Heading, Text } from "@/components/foundation/typography";
 
-const meta: Meta = {
+// Define the Meta with argTypes for controls
+const meta: Meta<typeof Modal> = {
   title: "Feedback/Modal",
+  component: Modal,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-}
+  argTypes: {
+    title: {
+      control: "text",
+      description: "The title of the modal",
+      defaultValue: "Modal Title",
+    },
+    description: {
+      control: "text",
+      description: "The description text below the title",
+      defaultValue: "This is a description of the modal content.",
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg", "xl", "full"],
+      description: "The size of the modal",
+      defaultValue: "md",
+    },
+    showCloseButton: {
+      control: "boolean",
+      description: "Whether to show the close button in the header",
+      defaultValue: true,
+    },
+    isOpen: {
+      control: false, // Disable control for isOpen since it's managed by useModal
+      description: "Whether the modal is open",
+    },
+    onClose: {
+      action: "closed",
+      description: "Callback when the modal is closed",
+    },
+    footer: {
+      control: false, // Footer is a ReactNode, not easily controllable
+      description: "Custom footer content, typically buttons",
+    },
+    children: {
+      control: false, // Children are not easily controllable
+      description: "Content inside the modal body",
+    },
+  },
+};
 
-export default meta
-type Story = StoryObj
+export default meta;
+type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
-  render: () => {
+  args: {
+    title: "Modal Title",
+    description: "This is a description of the modal content.",
+    size: "md",
+    showCloseButton: true,
+  },
+  render: ({ title, description, size, showCloseButton }) => {
     const ModalDemo = () => {
-      const { isOpen, open, close } = useModal()
+      const { isOpen, open, close } = useModal();
 
       return (
         <>
@@ -28,8 +75,10 @@ export const Default: Story = {
           <Modal
             isOpen={isOpen}
             onClose={close}
-            title="Modal Title"
-            description="This is a description of the modal content."
+            title={title}
+            description={description}
+            size={size}
+            showCloseButton={showCloseButton}
             footer={
               <>
                 <Button variant="outline" onClick={close}>
@@ -44,20 +93,19 @@ export const Default: Story = {
             </div>
           </Modal>
         </>
-      )
-    }
+      );
+    };
 
-    return <ModalDemo />
+    return <ModalDemo />;
   },
   parameters: {
     docs: {
       description: {
-        story: "Default modal with title, description, content, and footer actions.",
+        story: "Default modal with title, description, content, and footer actions. Use the controls in the Storybook UI or Docs page to modify props like title, description, size, and showCloseButton.",
       },
     },
   },
-}
-
+};
 export const Sizes: Story = {
   render: () => {
     const ModalSizesDemo = () => {
